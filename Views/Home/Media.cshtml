@@ -1,0 +1,53 @@
+@model Moment2.Models.MediaModel
+
+<h1>Media</h1>
+
+
+<partial name="_SidebarPartial" model="Model"/>
+
+<form aspnet method="post">
+    <label asp-for="MediaName"></label>
+    <input asp-for="MediaName">
+
+
+    <label asp-for="MediaScore"></label>
+    <select asp-for="MediaScore">
+        <option value="Select">Select</option>
+        <option value="10">10</option>
+        <option value="9">9</option>
+        <option value="8">8</option>
+        <option value="7">7</option>
+        <option value="6">6</option>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+    </select>
+
+
+    <label asp-for="MediaEpisodesChapters"></label>
+    <input asp-for="MediaEpisodesChapters">
+
+    <label asp-for="MediaSeasonsVolumes"></label>
+    <input asp-for="MediaSeasonsVolumes">
+
+    @* Genererar radio buttons, "MediaType" blir namn, "Movie/Series" blir value och "true" blir om den är checked. 
+    Tagen härifrån: https://dotnettutorials.net/lesson/radiobutton-html-helper-in-asp-net-core-mvc/ *@
+    
+    <label>
+        @Html.RadioButton("MediaType", "Movie/Series", true)
+        Movie/Series
+    </label>
+
+    <label>
+        @Html.RadioButton("MediaType", "Book", false)
+        Book
+    </label>
+
+    <label asp-for="MediaTags"></label>
+    <textarea asp-for="MediaTags"></textarea>
+
+    <input type="submit" value="Lägg till">
+</form>
+
