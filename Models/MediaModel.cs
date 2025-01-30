@@ -2,6 +2,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Moment2.Models
 {
+
+    public class UserModel
+    {
+        [Required(ErrorMessage = "Fältet får inte lämnas tomt")]
+        [Display(Name = "Namn:")]
+        public required string User { get; set; }
+    }
+
+    public class Text {
+        public required string BodyText { get; set; }
+        public required string DescText { get; set; }
+    }
+
     public class MediaModel
     {
         [Required(ErrorMessage = "Fältet får inte lämnas tomt")]

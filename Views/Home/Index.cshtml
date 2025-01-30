@@ -1,0 +1,20 @@
+@model Moment2.Models.UserModel
+<div>
+    <p>@ViewBag.user</p>
+    @* ViewBag.user != null *@
+    @if (false) 
+    {
+        <p>Välkommen tillbaka @ViewBag.user</p>
+    }
+    else
+    {
+        <form aspnet method="post">
+            <div>
+                <label asp-for="User"></label>
+                <input asp-for="User">
+                <span asp-validation-for="User"></span>
+            </div>
+            <input type="submit" value="Logga in">
+        </form>
+    }
+</div>

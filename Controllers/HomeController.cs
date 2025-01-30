@@ -1,3 +1,4 @@
+
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Moment2.Models;
@@ -10,6 +11,34 @@ namespace Moment2.Controllers
         {
             ViewData["Title"] = "Index";
             ViewData["Heading"] = "Index";
+            string key = "caal2301_cookie";
+            var cookieValue = Request.Cookies[key];
+            ViewBag.user = cookieValue;
+            return View();
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Index(UserModel model)
+        {
+            string key = "caal2301_cookie";
+            string value = model.User;
+            CookieOptions options = new CookieOptions
+            {
+                Domain = "localhost",
+                Expires = DateTime.Now.AddDays(1), // Cookie försvinner efter 1 dag
+                Path = "/", // Cookie kan nås från hela webbplatsen
+                Secure = true,
+                HttpOnly = true,
+                IsEssential = false
+            };
+
+            ModelState.Clear();
+            Response.Cookies.Append(key, value, options);
+            ViewData["Title"] = "Index";
+            ViewData["Heading"] = "Index";
+            ViewBag.user = model.User;
             return View();
         }
 
@@ -24,7 +53,11 @@ namespace Moment2.Controllers
         {
             ViewData["Title"] = "Media lista";
             ViewData["Heading"] = "Media lista";
-            return View();
+            Text text = new Text() {
+                BodyText = "Media lista",
+                DescText = "Media lista"
+            };
+            return View(text);
         }
 
         [HttpPost]
