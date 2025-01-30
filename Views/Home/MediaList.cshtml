@@ -1,38 +1,58 @@
 @using System.Text.Json;
 @using Moment2.Models;
+@model Moment2.Models.Text
 
 @{
     string jsondata = System.IO.File.ReadAllText("media.json");
     var mediaList = JsonSerializer.Deserialize<List<MediaModel>>(jsondata);
 }
 
+<p class="body-text">@Model.BodyText</p>
+<p class="desc-text">@Model.DescText</p>
+
 <div class="content-sidebar">
     <div class="media-list">
         @foreach (var Media in mediaList)
         {
-            <div>
-                <h3>@Media.MediaName</h3>
+            <article class="@Media.MediaType">
+                <h3 class="list-heading">@Media.MediaName</h3>
                 @* kollar om score är select *@
-                @if (Media.MediaScore != "Select")
-                {
-                    <p>Score: @Media.MediaScore</p>
-                }
-                else
-                {
-                    <p>Score: ?</p>
-                }
-                <p>@Media.MediaEpisodesChapters</p>
-                <p>@Media.MediaSeasonsVolumes</p>
-                <p>@Media.MediaType</p>
-                <ul>
-                    @foreach (var Tag in @Media.MediaTags)
+                <div class="list-p-div">
+                    @if (Media.MediaScore != "Select")
                     {
-                        <li>
-                            @Tag
-                        </li>
+                        <p>Score: @Media.MediaScore</p>
                     }
-                </ul>
-            </div>
+                    else
+                    {
+                        <p>Score: ?</p>
+                    }
+                    @if (Media.MediaType == "Book")
+                    {
+                        <p>Kapitel: @Media.MediaEpisodesChapters</p>
+                        <p>Volymer: @Media.MediaSeasonsVolumes</p>
+                    }
+                    else
+                    {
+                        <p>Avsnitt: @Media.MediaEpisodesChapters</p>
+                        <p>Säsonger: @Media.MediaSeasonsVolumes</p>
+                    }
+                </div>
+
+
+                @if (@Media.MediaTags[0] != "")
+                {
+                    <p class="category-p">Kategorier: </p>
+                    <ul>
+                        @foreach (var Tag in @Media.MediaTags)
+                        {
+                            <li>
+                                @Tag
+                            </li>
+                        }
+                    </ul>
+                }
+
+            </article>
         }
     </div>
     <partial name="_SidebarPartial" model="Model" />

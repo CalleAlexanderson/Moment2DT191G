@@ -54,8 +54,8 @@ namespace Moment2.Controllers
             ViewData["Title"] = "Media lista";
             ViewData["Heading"] = "Media lista";
             Text text = new Text() {
-                BodyText = "Media lista",
-                DescText = "Media lista"
+                BodyText = "Det här är en lista med olika former av media (filmer, serier och böcker), den har baserats på MyAnimeList listor.",
+                DescText = "Filmer/Serier = Mörkblå. Böcker = Mörkgrön"
             };
             return View(text);
         }
