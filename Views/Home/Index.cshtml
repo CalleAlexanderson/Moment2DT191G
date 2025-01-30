@@ -1,10 +1,8 @@
 @model Moment2.Models.UserModel
 <div>
-    <p>@ViewBag.user</p>
-    @* ViewBag.user != null *@
-    @if (false) 
+    @if (ViewBag.user != null)
     {
-        <p>Välkommen tillbaka @ViewBag.user</p>
+        <p class="welcome-back">Välkommen tillbaka @ViewBag.user</p>
     }
     else
     {

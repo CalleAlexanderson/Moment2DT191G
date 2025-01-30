@@ -34,6 +34,12 @@ main {
     padding:10px 0;
 }
 
+.welcome-back{
+    text-align: center;
+    margin: 40px auto;
+    font-size: 1.5rem;
+}
+
 /* _SidebarPartial style */
 
 aside {
@@ -94,6 +100,17 @@ form textarea {
     resize: none;
 }
 
+form textarea,
+form input {
+    padding: 2px;
+}
+
+form input[type=submit]{
+    display: block;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
 /* Media style end */
 
 /* --------------------------------------------------------------------------------- */
@@ -107,8 +124,6 @@ form textarea {
     margin: 0 auto;
     padding: 10px 0;
 }
-
-.media-list {}
 
 .media-list article {
     width: 90%;
