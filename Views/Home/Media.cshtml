@@ -4,52 +4,68 @@
 
 <div class="content-sidebar">
     <form aspnet method="post">
-    <label asp-for="MediaName"></label>
-    <input asp-for="MediaName">
+        <div>
+            <label asp-for="MediaName"></label>
+            <input asp-for="MediaName">
+            <span asp-validation-for="MediaName"></span>
+        </div>
 
 
-    <label asp-for="MediaScore"></label>
-    <select asp-for="MediaScore">
-        <option value="Select">Select</option>
-        <option value="10">10</option>
-        <option value="9">9</option>
-        <option value="8">8</option>
-        <option value="7">7</option>
-        <option value="6">6</option>
-        <option value="5">5</option>
-        <option value="4">4</option>
-        <option value="3">3</option>
-        <option value="2">2</option>
-        <option value="1">1</option>
-    </select>
+        <div>
+            <label asp-for="MediaScore"></label>
+            <select asp-for="MediaScore">
+                <option value="Select">Select</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+            </select>
+            <span asp-validation-for="MediaScore"></span>
+        </div>
 
 
-    <label asp-for="MediaEpisodesChapters"></label>
-    <input asp-for="MediaEpisodesChapters">
+        <div>
+            <label asp-for="MediaEpisodesChapters"></label>
+            <input asp-for="MediaEpisodesChapters">
+            <span asp-validation-for="MediaEpisodesChapters"></span>
+        </div>
 
-    <label asp-for="MediaSeasonsVolumes"></label>
-    <input asp-for="MediaSeasonsVolumes">
+        <div>
+            <label asp-for="MediaSeasonsVolumes"></label>
+            <input asp-for="MediaSeasonsVolumes">
+            <span asp-validation-for="MediaSeasonsVolumes"></span>
+        </div>
 
-    @* Genererar radio buttons, "MediaType" blir namn, "Movie/Series" blir value och "true" blir om den är checked. 
+        @* Genererar radio buttons, "MediaType" blir namn, "Movie/Series" blir value och "true" blir om den är checked. 
     Tagen härifrån: https://dotnettutorials.net/lesson/radiobutton-html-helper-in-asp-net-core-mvc/ *@
-    
-    <label>
-        @Html.RadioButton("MediaType", "Movie/Series", true)
-        Movie/Series
-    </label>
 
-    <label>
-        @Html.RadioButton("MediaType", "Book", false)
-        Book
-    </label>
+        <div>
+            <label>
+                @Html.RadioButton("MediaType", "Movie/Series", true)
+                Movie/Series
+            </label>
 
-    <label asp-for="MediaTags"></label>
-    <textarea asp-for="MediaTags"></textarea>
+            <label>
+                @Html.RadioButton("MediaType", "Book", false)
+                Book
+            </label>
+        </div>
 
-    <input type="submit" value="Lägg till">
-</form>
-    <partial name="_SidebarPartial" model="Model"/>
+        <div>
+            <label asp-for="MediaTags"></label>
+            <textarea asp-for="MediaTags"></textarea>
+            <span asp-validation-for="MediaTags"></span>
+        </div>
+
+        <input type="submit" value="Lägg till">
+    </form>
+    <partial name="_SidebarPartial" model="Model" />
 
 
 </div>
-

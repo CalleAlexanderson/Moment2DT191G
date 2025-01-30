@@ -12,7 +12,15 @@
         {
             <div>
                 <h3>@Media.MediaName</h3>
-                <p>@Media.MediaScore</p>
+                @* kollar om score är select *@
+                @if (Media.MediaScore != "Select")
+                {
+                    <p>Score: @Media.MediaScore</p>
+                }
+                else
+                {
+                    <p>Score: ?</p>
+                }
                 <p>@Media.MediaEpisodesChapters</p>
                 <p>@Media.MediaSeasonsVolumes</p>
                 <p>@Media.MediaType</p>

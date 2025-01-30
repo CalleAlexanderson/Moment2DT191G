@@ -26,7 +26,7 @@
             sideBarSeries.Add(Media);
         }
     }
-    
+
 }
 
 <aside>
@@ -38,7 +38,15 @@
     {
         <div>
             <h4>@sideBarBooks[i].MediaName</h4>
-            <p>Score: @sideBarBooks[i].MediaScore</p>
+                @* kollar om score är select *@
+            @if (sideBarBooks[i].MediaScore != "Select")
+            {
+                <p>Score: @sideBarBooks[i].MediaScore</p>
+            }
+            else
+            {
+                <p>Score: ?</p>
+            }
             <p>Kapitel: @sideBarBooks[i].MediaEpisodesChapters</p>
             <p>Volymer: @sideBarBooks[i].MediaSeasonsVolumes</p>
         </div>

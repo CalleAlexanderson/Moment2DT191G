@@ -31,8 +31,16 @@ namespace Moment2.Controllers
         public IActionResult Media(MediaModel model)
         {
             model.Date = DateTime.Now;
+
             // gör kategorierna till egna index i listan
-            model.MediaTags = model.MediaTags[0].Split(',').Select(str => str.Trim()).ToArray();
+            if (model.MediaTags[0] != null)
+            {
+                model.MediaTags = model.MediaTags[0].Split(',').Select(str => str.Trim()).ToArray();
+            }
+            else
+            {
+                model.MediaTags[0] = "";
+            }
 
             // kollar om model följer MediaModel 
             if (ModelState.IsValid)
@@ -53,6 +61,8 @@ namespace Moment2.Controllers
                 // nollställer formuläret
                 ModelState.Clear();
             }
+            ViewData["Title"] = "Lägg till media";
+            ViewData["Heading"] = "Lägg till media";
             return View();
         }
     }
