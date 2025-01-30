@@ -37,19 +37,10 @@
     @for (var i = 0; i < sideBarBooks.Count && i < 3; i++)
     {
         <div>
-            <h3>@sideBarBooks[i].MediaName</h3>
-            <p>@sideBarBooks[i].MediaScore</p>
-            <p>@sideBarBooks[i].MediaEpisodesChapters</p>
-            <p>@sideBarBooks[i].MediaSeasonsVolumes</p>
-            <p>@sideBarBooks[i].MediaType</p>
-            <ul>
-                @foreach (var Tag in @sideBarBooks[i].MediaTags)
-                {
-                    <li>
-                        @Tag
-                    </li>
-                }
-            </ul>
+            <h4>@sideBarBooks[i].MediaName</h4>
+            <p>Score: @sideBarBooks[i].MediaScore</p>
+            <p>Kapitel: @sideBarBooks[i].MediaEpisodesChapters</p>
+            <p>Volymer: @sideBarBooks[i].MediaSeasonsVolumes</p>
         </div>
     }
 
@@ -58,18 +49,9 @@
     {
         <div>
             <h3>@sideBarSeries[i].MediaName</h3>
-            <p>@sideBarSeries[i].MediaScore</p>
-            <p>@sideBarSeries[i].MediaEpisodesChapters</p>
-            <p>@sideBarSeries[i].MediaSeasonsVolumes</p>
-            <p>@sideBarSeries[i].MediaType</p>
-            <ul>
-                @foreach (var Tag in @sideBarSeries[i].MediaTags)
-                {
-                    <li>
-                        @Tag
-                    </li>
-                }
-            </ul>
+            <p>Score: @sideBarSeries[i].MediaScore</p>
+            <p>Episoder: @sideBarSeries[i].MediaEpisodesChapters</p>
+            <p>Säsonger: @sideBarSeries[i].MediaSeasonsVolumes</p>
         </div>
     }
 </aside>

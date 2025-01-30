@@ -1,27 +1,31 @@
 @using System.Text.Json;
 @using Moment2.Models;
-<h1>Site3</h1>
 
 @{
     string jsondata = System.IO.File.ReadAllText("media.json");
     var mediaList = JsonSerializer.Deserialize<List<MediaModel>>(jsondata);
 }
 
-@foreach (var Media in mediaList)
-{
-    <div>
-        <h3>@Media.MediaName</h3>
-        <p>@Media.MediaScore</p>
-        <p>@Media.MediaEpisodesChapters</p>
-        <p>@Media.MediaSeasonsVolumes</p>
-        <p>@Media.MediaType</p>
-        <ul>
-            @foreach (var Tag in @Media.MediaTags)
-            {
-                <li>
-                    @Tag
-                </li>
-            }
-        </ul>
+<div class="content-sidebar">
+    <div class="media-list">
+        @foreach (var Media in mediaList)
+        {
+            <div>
+                <h3>@Media.MediaName</h3>
+                <p>@Media.MediaScore</p>
+                <p>@Media.MediaEpisodesChapters</p>
+                <p>@Media.MediaSeasonsVolumes</p>
+                <p>@Media.MediaType</p>
+                <ul>
+                    @foreach (var Tag in @Media.MediaTags)
+                    {
+                        <li>
+                            @Tag
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
     </div>
-}
+    <partial name="_SidebarPartial" model="Model" />
+    <div>

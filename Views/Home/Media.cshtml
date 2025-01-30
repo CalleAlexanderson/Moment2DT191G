@@ -1,11 +1,9 @@
 @model Moment2.Models.MediaModel
 
-<h1>Media</h1>
 
 
-<partial name="_SidebarPartial" model="Model"/>
-
-<form aspnet method="post">
+<div class="content-sidebar">
+    <form aspnet method="post">
     <label asp-for="MediaName"></label>
     <input asp-for="MediaName">
 
@@ -50,4 +48,8 @@
 
     <input type="submit" value="Lägg till">
 </form>
+    <partial name="_SidebarPartial" model="Model"/>
+
+
+</div>
 
