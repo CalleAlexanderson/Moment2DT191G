@@ -8,5 +8,7 @@ namespace Moment2.Models
         public required int MediaSeasonsVolumes {get; set;}
         public required string MediaType {get; set;}
         public required string[] MediaTags {get; set;}
+        public DateTime Date {get; set;}
+        
     }
 }

@@ -1,3 +1,5 @@
 [
-    {"MediaName":"fsdfg","MediaScore":10,"MediaEpisodesChapters":43243,"MediaSeasonsVolumes":213,"MediaType":"Movie/Series","MediaTags":["fdghdfgh"]}
+{"MediaName":"Hell","MediaScore":10,"MediaEpisodesChapters":25,"MediaSeasonsVolumes":1,"MediaType":"Movie/Series","MediaTags":["Super heros"],"Date":"2025-01-29T23:44:46.6818558+01:00"},
+{"MediaName":"Drak","MediaScore":7,"MediaEpisodesChapters":6,"MediaSeasonsVolumes":1,"MediaType":"Book","MediaTags":["Dragons","Romance"],"Date":"2025-01-29T23:43:58.2337272+01:00"},
+{"MediaName":"Lmao","MediaScore":4,"MediaEpisodesChapters":16,"MediaSeasonsVolumes":2,"MediaType":"Book","MediaTags":["Isekai"],"Date":"2025-01-29T23:45:04.9746481+01:00"}
 ]

@@ -16,13 +16,16 @@ namespace Moment2.Controllers
             return View();
         }
 
-        public IActionResult Site3()
+        public IActionResult MediaList()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Media(MediaModel model){
+        public IActionResult Media(MediaModel model)
+        {
+            model.Date = DateTime.Now;
+            model.MediaTags = model.MediaTags[0].Split(',').Select(str => str.Trim()).ToArray();
             if (ModelState.IsValid)
             {
                 string jsondata = System.IO.File.ReadAllText("media.json");

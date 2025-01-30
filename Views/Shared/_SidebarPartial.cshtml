@@ -1,3 +1,75 @@
+@using System.Text.Json;
+@using Moment2.Models;
+
+@{
+    string jsondata = System.IO.File.ReadAllText("media.json");
+    var sidebarMedia = JsonSerializer.Deserialize<List<MediaModel>>(jsondata);
+
+    @* Sorterar listan efter vilken som skapades senast *@
+    sidebarMedia.Sort((x, y) => x.Date.CompareTo(y.Date));
+    sidebarMedia.Reverse();
+
+    @* Skapar listor för böcker och serier *@
+    var sideBarBooks = new List<MediaModel> { };
+    var sideBarSeries = new List<MediaModel> { };
+
+    @* sorterar in de i olika listor *@
+    @foreach (var Media in sidebarMedia)
+    {
+        Console.WriteLine("media: " + Media.MediaName);
+        if (Media.MediaType == "Book")
+        {
+            sideBarBooks.Add(Media);
+        }
+        else
+        {
+            sideBarSeries.Add(Media);
+        }
+    }
+    
+}
+
 <aside>
     <p>Det här är en sidebar</p>
+    <p>Senaste tillagda:</p>
+
+    <p>Böcker:</p>
+    @for (var i = 0; i < sideBarBooks.Count && i < 3; i++)
+    {
+        <div>
+            <h3>@sideBarBooks[i].MediaName</h3>
+            <p>@sideBarBooks[i].MediaScore</p>
+            <p>@sideBarBooks[i].MediaEpisodesChapters</p>
+            <p>@sideBarBooks[i].MediaSeasonsVolumes</p>
+            <p>@sideBarBooks[i].MediaType</p>
+            <ul>
+                @foreach (var Tag in @sideBarBooks[i].MediaTags)
+                {
+                    <li>
+                        @Tag
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+
+    <p>Filmer:</p>
+    @for (var i = 0; i < sideBarSeries.Count && i < 3; i++)
+    {
+        <div>
+            <h3>@sideBarSeries[i].MediaName</h3>
+            <p>@sideBarSeries[i].MediaScore</p>
+            <p>@sideBarSeries[i].MediaEpisodesChapters</p>
+            <p>@sideBarSeries[i].MediaSeasonsVolumes</p>
+            <p>@sideBarSeries[i].MediaType</p>
+            <ul>
+                @foreach (var Tag in @sideBarSeries[i].MediaTags)
+                {
+                    <li>
+                        @Tag
+                    </li>
+                }
+            </ul>
+        </div>
+    }
 </aside>
