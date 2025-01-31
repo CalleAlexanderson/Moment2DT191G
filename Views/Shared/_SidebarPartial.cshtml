@@ -32,44 +32,48 @@
 <aside>
     <h2>Senaste tillagda:</h2>
 
-    <h3>Böcker:</h3>
-    @for (var i = 0; i < sideBarBooks.Count && i < 3; i++)
-    {
-        <article class="sidebar-article">
-            <h4>@sideBarBooks[i].MediaName</h4>
-            @* kollar om score är select *@
-            <div class="sidebar-article-p">
-                @if (sideBarBooks[i].MediaScore != "Select")
-                {
-                    <p>Score: @sideBarBooks[i].MediaScore</p>
-                }
-                else
-                {
-                    <p>Score: ?</p>
-                }
-                <p>Kapitel: @sideBarBooks[i].MediaEpisodesChapters</p>
-                <p>Volymer: @sideBarBooks[i].MediaSeasonsVolumes</p>
-            </div>
-        </article>
-    }
+    <div>
+        <h3>Böcker:</h3>
+        @for (var i = 0; i < sideBarBooks.Count && i < 3; i++)
+        {
+            <article class="sidebar-article">
+                <h4>@sideBarBooks[i].MediaName</h4>
+                @* kollar om score är select *@
+                <div class="sidebar-article-p">
+                    @if (sideBarBooks[i].MediaScore != "Select")
+                    {
+                        <p>Score: @sideBarBooks[i].MediaScore</p>
+                    }
+                    else
+                    {
+                        <p>Score: ?</p>
+                    }
+                    <p>Kapitel: @sideBarBooks[i].MediaEpisodesChapters</p>
+                    <p>Volymer: @sideBarBooks[i].MediaSeasonsVolumes</p>
+                </div>
+            </article>
+        }
+    </div>
 
-    <h3>Filmer:</h3>
-    @for (var i = 0; i < sideBarSeries.Count && i < 3; i++)
-    {
-        <article class="sidebar-article">
-            <h4>@sideBarSeries[i].MediaName</h4>
-            <div class="sidebar-article-p">
-                @if (sideBarSeries[i].MediaScore != "Select")
-                {
-                    <p>Score: @sideBarSeries[i].MediaScore</p>
-                }
-                else
-                {
-                    <p>Score: ?</p>
-                }
-                <p>Episoder: @sideBarSeries[i].MediaEpisodesChapters</p>
-                <p>Säsonger: @sideBarSeries[i].MediaSeasonsVolumes</p>
-            </div>
-        </article>
-    }
+    <div>
+        <h3>Filmer:</h3>
+        @for (var i = 0; i < sideBarSeries.Count && i < 3; i++)
+        {
+            <article class="sidebar-article">
+                <h4>@sideBarSeries[i].MediaName</h4>
+                <div class="sidebar-article-p">
+                    @if (sideBarSeries[i].MediaScore != "Select")
+                    {
+                        <p>Score: @sideBarSeries[i].MediaScore</p>
+                    }
+                    else
+                    {
+                        <p>Score: ?</p>
+                    }
+                    <p>Episoder: @sideBarSeries[i].MediaEpisodesChapters</p>
+                    <p>Säsonger: @sideBarSeries[i].MediaSeasonsVolumes</p>
+                </div>
+            </article>
+        }
+    </div>
 </aside>

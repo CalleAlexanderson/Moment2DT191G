@@ -83,7 +83,7 @@ aside {
     width: 90%;
     height: 90%;
     max-width: 600px;
-    max-height: 450px;
+    max-height: 500px;
     margin: 30px auto 10px;
     background-color: orchid;
     border: 2px solid black;
@@ -243,8 +243,11 @@ form input[type=submit] {
     }
 
     aside {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         max-width: 300px;
         padding-bottom: 5px;
-        margin: 0 auto 5%;
+        margin: 0 auto 10%;
     }
 }
