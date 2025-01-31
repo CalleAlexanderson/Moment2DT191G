@@ -3,7 +3,8 @@
     margin: 0;
 }
 
-body {
+body,
+nav {
     background-color: azure;
 }
 
@@ -11,10 +12,9 @@ header,
 h1 {
     position: sticky;
     width: 100%;
-    background-color: lightcyan;
 }
 
-header{
+header {
     top: 0;
     left: 0;
     height: 40px;
@@ -23,18 +23,55 @@ header{
 h1 {
     top: 40px;
     left: 0;
+    padding: 10px 0;
     text-align: center;
     border-bottom: 2px solid black;
+}
+
+h1,
+li.current-site {
+    background-color: rgb(103, 255, 255);
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 300px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    list-style: none;
+}
+
+nav li {
+    height: 100%;
+    margin-top: 10px;
+    padding: 5px 0 10px;
+    width: 100px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+nav li:not(.current-site):hover{
+    background-color: rgb(163, 255, 255);
+}
+
+nav a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: black;
 }
 
 main {
     max-width: 1020px;
     margin: 0 auto;
     background-color: white;
-    padding:10px 0;
+    padding: 10px 0;
 }
 
-.welcome-back{
+.welcome-back {
     text-align: center;
     margin: 40px auto;
     font-size: 1.5rem;
@@ -57,7 +94,7 @@ aside div {
     width: 100%;
 }
 
-aside h4{
+aside h4 {
     border-bottom: 1px solid black;
     padding-bottom: 2px;
 }
@@ -105,7 +142,7 @@ form input {
     padding: 2px;
 }
 
-form input[type=submit]{
+form input[type=submit] {
     display: block;
     margin: 0 auto;
     font-size: 1rem;
@@ -206,8 +243,8 @@ form input[type=submit]{
     }
 
     aside {
-        max-width: 300px;    
+        max-width: 300px;
         padding-bottom: 5px;
-        margin: 5% auto;
+        margin: 0 auto 5%;
     }
 }

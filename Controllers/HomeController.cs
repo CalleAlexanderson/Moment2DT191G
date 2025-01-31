@@ -7,6 +7,8 @@ namespace Moment2.Controllers
 {
     public class HomeController : Controller
     {
+        
+        private readonly string[] nav = ["Index", "Media", "MediaList"];
         public IActionResult Index()
         {
             ViewData["Title"] = "Index";
@@ -14,6 +16,8 @@ namespace Moment2.Controllers
             string key = "caal2301_cookie";
             var cookieValue = Request.Cookies[key];
             ViewBag.user = cookieValue;
+            ViewBag.nav = nav;
+            ViewBag.loc = "Index";
             return View();
         }
 
@@ -39,6 +43,8 @@ namespace Moment2.Controllers
             ViewData["Title"] = "Index";
             ViewData["Heading"] = "Index";
             ViewBag.user = model.User;
+            ViewBag.nav = nav;
+            ViewBag.loc = "Index";
             return View();
         }
 
@@ -46,6 +52,8 @@ namespace Moment2.Controllers
         {
             ViewData["Title"] = "Lägg till media";
             ViewData["Heading"] = "Lägg till media";
+            ViewBag.nav = nav;
+            ViewBag.loc = "Media";
             return View();
         }
 
@@ -53,6 +61,8 @@ namespace Moment2.Controllers
         {
             ViewData["Title"] = "Media lista";
             ViewData["Heading"] = "Media lista";
+            ViewBag.nav = nav;
+            ViewBag.loc = "MediaList";
             Text text = new Text() {
                 BodyText = "Det här är en lista med olika former av media (filmer, serier och böcker), den har baserats på MyAnimeList listor.",
                 DescText = "Filmer/Serier = Mörkblå. Böcker = Mörkgrön"
@@ -96,6 +106,8 @@ namespace Moment2.Controllers
             }
             ViewData["Title"] = "Lägg till media";
             ViewData["Heading"] = "Lägg till media";
+            ViewBag.nav = nav;
+            ViewBag.loc = "Media";
             return View();
         }
     }

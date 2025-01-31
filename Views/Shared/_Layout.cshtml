@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/main.css">
     <title>@ViewData["Title"]</title>
 </head>
+
 <body>
     <header>
         <nav>
-        <a asp-controller="Home" asp-action="Index">Hem</a>
-        <a asp-controller="Home" asp-action="Media">Media</a>
-        <a asp-controller="Home" asp-action="MediaList">sida 3</a>
-    </nav>
+            <ul>
+
+            
+            @foreach (var Item in ViewBag.nav)
+            {
+                @if (Item == ViewBag.loc)
+                {
+                    <li class="current-site">
+                        <a asp-controller="Home" asp-action="@Item">@Item</a>
+                    </li>
+                } else {
+                    <li>
+                        <a asp-controller="Home" asp-action="@Item">@Item</a>
+                    </li>
+                }
+
+            }
+            </ul>
+        </nav>
     </header>
     <h1>@ViewData["Heading"]</h1>
     <main>
         @RenderBody()
     </main>
 </body>
+
 </html>
